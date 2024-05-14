@@ -1,35 +1,120 @@
 USE cine;
 
-SET GLOBAL local_infile = true;
+INSERT INTO calificacion (id_calificacion,nombre)
+VALUES
+(1, 'ATP: Apto para Todo Público'), 
+(2, 'mayor 13: Apta mayores de 13 años'),
+(3, 'mayor 16: Apta mayores de 16 años'),
+(4, 'mayor 18: Apta mayores de 18 años');
 
-LOAD DATA  LOCAL INFILE '/structure/data-csv/calificacion.csv'
-INTO TABLE Calificacion
-FIELDS TERMINATED BY ';' 
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+INSERT INTO genero (id_genero,nombre)
+VALUES
+(1,'Acción'),
+(2,'Aventura'),
+(3,'Catástrofe'),
+(4,'Ciencia Ficción'),
+(5,'Comedia'),
+(6,'Documentales'),
+(7,'Drama'),
+(8,'Fantasía'),
+(9,'Musicales'),
+(10,'Suspenso'),
+(11,'Terror'),
+(12,'Pornográfico'),
+(13,'Infantiles'),
+(14,'Juveniles'),
+(15,'Adultos'),
+(16,'Animadas'),
+(17,'Bélicas'),
+(18,'Crimen'),
+(19,'Deportivas'),
+(20,'Gangsters'),
+(21,'Históricas'),
+(22,'Policiacas'),
+(23,'Western'),
+(24,'Religioso'),
+(25,'Épicas'),
+(26,'Futuristas');
 
+/*Insertar registros tabla paisdeorigen*/
+INSERT INTO paisdeorigen (id_pais_de_origen,idioma,nombre)
+VALUES
+(1,'albanés','albania'),
+(2,'alemán','alemania'),
+(3,'catalán','andorra'),
+(4,'armenio','armenia'),
+(5,'alemán','austria'),
+(6,'azerí','azerbaiyán'),
+(7,'neerlandés francés y alemán','bélgica'),
+(8,'bielorruso y ruso','bielorrusia'),
+(9,'bosnio, croata y serbio','bosnia y herzegovina'),
+(10,'búlgaro','bulgaria'),
+(11,'griego y turco','chipre'),
+(12,'latín e italiano','ciudad el vaticano'),
+(13,'croata','croacia'),
+(14,'danés','dinamarca'),
+(15,'eslovaco','eslovaquia'),
+(16,'esloveno','eslovenia'),
+(17,'español','españa'),
+(18,'estonio','estonia'),
+(19,'finés y sueco','finlandia'),
+(20,'francés','francia'),
+(21,'georgiano','georgia'),
+(22,'griego','grecia'),
+(23,'húngaro','hungría'),
+(24,'irlandés e inglés','irlanda'),
+(25,'islandés','islandia'),
+(26,'italiano','italia'),
+(27,'kazajo y ruso','kazajistán'),
+(28,'letón','letonia'),
+(29,'alemán','liechtenstein'),
+(30,'lituano','lituania'),
+(31,'luxemburgués francés y alemán','luxemburgo'),
+(32,'maltés e inglés','malta'),
+(33,'rumano','moldavia'),
+(34,'francés','mónaco'),
+(35,'montenegrino','montenegro'),
+(36,'noruego','noruega'),
+(37,'neerlandés','países bajos'),
+(38,'polaco','polonia'),
+(39,'portugués','portugal'),
+(40,'inglés','reino unido'),
+(41,'checo','república checa'),
+(42,'macedonio','república de macedonia'),
+(43,'rumano','rumania'),
+(44,'ruso','rusia'),
+(45,'italiano','san marino'),
+(46,'serbio','serbia'),
+(47,'sueco','suecia'),
+(48,'alemán francés italiano y romance','suiza'),
+(49,'turco','turquía'),
+(50,'ucraniano','ucrania');
 
-LOAD DATA  LOCAL INFILE '/structure/data-csv/genero.csv'
-INTO TABLE Genero
-FIELDS TERMINATED BY ';' 
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+/*Insertar registros tabla pelicula*/
+INSERT INTO pelicula (id_pelicula,anio_estreno,disponible,duracion,fecha_ingreso,nombre,titulo_original,id_calificacion,id_pais_de_origen,id_genero)
+VALUES
+(1,2009,1,11,'2020-01-01','ACERO PURO','',1,29,1),
+(2,2010,1,95,'2020-01-01','AEON FLUX','',3,2,1),
+(22,2016,1,110,'2020-01-01','BREAKDOWN','',2,3,11),
+(23,2016,1,106,'2020-01-01','CAPITÁN PHILLIPS','',1,2,1),
+(24,2012,1,112,'2020-01-01','EL DESCONOCIDO','',2,4,1),
+(25,2014,1,113,'2020-01-01','EL FRANCOTIRADOR','',2,5,1),
+(26,2014,1,120,'2020-01-01','GUERRA MUNDIAL Z','',3,7,1),
+(27,2012,1,114,'2020-01-01','EL PRECIO DEL MAÑANA','',3,8,1),
+(28,2015,1,89,'2020-01-01','JURASSIC WORLD','',1,9,1),
+(29,2016,1,104,'2020-01-01','LOS GOONIES','',1,10,1),
+(30,2007,1,103,'2020-01-01','MEMENTO','',3,11,1),
+(31,2008,1,102,'2020-01-01','MISIÓN IMPOSIBLE','',2,12,1),
+(32,2014,1,105,'2020-01-01','FRECUENCIA MORTAL','',3,2,1),
+(33,2016,1,106,'2020-01-01','OPERACIÓN RENO','',2,25,1),
+(34,2015,1,99,'2020-01-01','EL PLAN PERFECTO','',3,38,1),
+(35,2002,1,98,'2020-01-01','PULP FICTION','',3,40,1),
+(36,2006,1,111,'2020-01-01','LA MEXICANA','',2,41,1),
+(37,2010,1,112,'2020-01-01','INVENCIBLE','',1,27,1),
+(38,2011,1,113,'2020-01-01','YO FRANKENSTEIN','',1,50,1);
 
-LOAD DATA  LOCAL INFILE '/structure/data-csv/paisdeorigen.csv'
-INTO TABLE PaisDeOrigen
-FIELDS TERMINATED BY ';' 
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
-LOAD DATA  LOCAL INFILE '/structure/data-csv/pelicula.csv'
-INTO TABLE Pelicula
-FIELDS TERMINATED BY ';' 
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
-
-/*Insertar registros tabla ACTOR*/
-INSERT INTO Actor (id_actor, animado, apellido, nombre)
+/*Insertar registros tabla actor*/
+INSERT INTO actor (id_actor, animado, apellido, nombre)
 VALUES
 (1, 0, 'Smith', 'John'),
 (2, 0, 'Johnson', 'Emma'),
@@ -132,8 +217,8 @@ VALUES
 (99, 0, 'Chavez', 'Angel'),
 (100, 1, 'Garfield', NULL);
 
-/*Insertar registros tabla CINE*/
-INSERT INTO Cine (id_cine, direccion, fecha_inauguracion, nombre, precio_entrada)
+/*Insertar registros tabla cine*/
+INSERT INTO cine (id_cine, direccion, fecha_inauguracion, nombre, precio_entrada)
 VALUES
 (1, 'Rivadavia 123, Peatonal Sur', '2022-01-15 10:00:00', 'Cine PEATONAL', 1500.00),
 (2, 'Avenida Belgrano, Shopping Terminal', '2021-08-20 09:30:00', 'Cine TERMINAL', 2000.00),
@@ -142,8 +227,8 @@ VALUES
 (5, 'Perú 789, Galerias V', '2023-02-28 14:30:00', 'Cine V', 1500.00);
 
 
-/*Insertar registros tabla SALA*/
-INSERT INTO Sala (id_sala, capacidad, numero, id_cine)
+/*Insertar registros tabla sala*/
+INSERT INTO sala (id_sala, capacidad, numero, id_cine)
 VALUES
 (1, 100, 1, 1),
 (2, 80, 2, 1),
@@ -156,8 +241,8 @@ VALUES
 (9, 130, 1, 5),
 (10, 95, 2, 5);
 
-/*Insertar registros tabla SEXO*/
-INSERT INTO Sexo (id_sexo, nombre, id_actor)
+/*Insertar registros tabla sexo*/
+INSERT INTO sexo (id_sexo, nombre, id_actor)
 VALUES
 (1, 'Masculino', 1),
 (2, 'Femenino', 2),
@@ -260,8 +345,8 @@ VALUES
 (99, 'Masculino', 99),
 (100, 'Femenino', 100);
 
-/*Insertar registros tabla PERSONAJE*/
-INSERT INTO Personaje (id_personaje, nombreEnPelicula, id_actor)
+/*Insertar registros tabla personaje*/
+INSERT INTO personaje (id_personaje, nombreEnPelicula, id_actor)
 VALUES
 (1, 'Mickey Mouse', 3),
 (2, 'Donald Duck', 4),
@@ -286,7 +371,7 @@ VALUES
 
 
 /*Insertar registros tabla horariofuncion*/
-INSERT INTO HorarioFuncion (id_horario_funcion, duracion_intervalo, duracion_publicidad, es_trasnoche, hora_primera_funcion, hora_ultima_funcion, id_cine)
+INSERT INTO horariofuncion (id_horario_funcion, duracion_intervalo, duracion_publicidad, es_trasnoche, hora_primera_funcion, hora_ultima_funcion, id_cine)
 VALUES
 (1, 15, 10, 0, '2022-01-15 10:30:00', '2022-01-15 23:30:00', 1),
 (2, 20, 12, 0, '2022-01-15 10:15:00', '2022-01-15 23:00:00', 1),
@@ -311,7 +396,7 @@ VALUES
 
 
 /*Insertar registros tabla programacion*/
-INSERT INTO Programacion (id_programacion, fecha_fin, fecha_hora_creada, fecha_inicio, id_cine)
+INSERT INTO programacion (id_programacion, fecha_fin, fecha_hora_creada, fecha_inicio, id_cine)
 VALUES
 (1, '2022-02-28 23:59:59', '2022-02-01 10:00:00', '2022-02-01 00:00:00', 1),
 (2, '2022-02-28 23:59:59', '2022-02-01 10:00:00', '2022-02-01 00:00:00', 2),
@@ -335,7 +420,7 @@ VALUES
 (20, '2022-02-28 23:59:59', '2022-02-01 10:00:00', '2022-02-01 00:00:00', 5);
 
 /*Insertar registros tabla funcion*/
-INSERT INTO Funcion (numero, dia_semana, duracion, hora_inicio, id_programacion, id_pelicula, id_sala)
+INSERT INTO funcion (numero, dia_semana, duracion, hora_inicio, id_programacion, id_pelicula, id_sala)
 VALUES
 (1, 'Lunes', '2 horas', '14:00', 1, 1, 1),
 (2, 'Martes', '2 horas', '15:00', 2, 22, 2),
@@ -349,8 +434,8 @@ VALUES
 (10, 'Miércoles', '2 horas', '23:00', 3, 30, 5);
 
 
-/*Insertar registros tabla REPARTO*/
-INSERT INTO Reparto (id_personaje, id_pelicula)
+/*Insertar registros tabla reparto*/
+INSERT INTO reparto (id_personaje, id_pelicula)
 VALUES
 (1, 1),
 (2, 2),
@@ -372,8 +457,8 @@ VALUES
 (18, 37),
 (19, 38);
 
-/*Insertar registros tabla ROL*/
-INSERT INTO Rol (id_rol, nombre, id_personaje)
+/*Insertar registros tabla rol*/
+INSERT INTO rol (id_rol, nombre, id_personaje)
 VALUES
 (1, 'Protagonista', 1),
 (2, 'Protagonista', 2),
@@ -396,8 +481,8 @@ VALUES
 (19, 'Secundario', 19),
 (20, 'Secundario', 20);
 
-/*Insertar registros tabla ENTRADA*/
-INSERT INTO Entrada (id_entrada, fecha_hora_funcion, fecha_hora_venta, precio_cobrado, ticket_nro, numero)
+/*Insertar registros tabla entrada*/
+INSERT INTO entrada (id_entrada, fecha_hora_funcion, fecha_hora_venta, precio_cobrado, ticket_nro, numero)
 VALUES
 (1, '2024-04-11 14:00:00', NULL, NULL, NULL, 1),
 (2, '2024-04-12 15:00:00', NULL, NULL, NULL, 2),
