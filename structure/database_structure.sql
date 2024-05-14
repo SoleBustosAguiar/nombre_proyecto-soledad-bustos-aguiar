@@ -1,20 +1,18 @@
 DROP DATABASE IF EXISTS cine ;
-
 CREATE DATABASE cine DEFAULT CHARACTER SET utf8 ; 
 USE cine;
-
 CREATE TABLE actor (
   id_actor INT NOT NULL,
   animado TINYINT(1) NULL,
   apellido VARCHAR(200) NULL,
   nombre VARCHAR(200) NULL,
-  CONSTRAINT PK_ACTOR PRIMARY KEY (id_actor)
+  CONSTRAINT pk_actor PRIMARY KEY (id_actor)
 );
 
 CREATE TABLE calificacion (
   id_calificacion INT NOT NULL,
   nombre VARCHAR(200) NULL,
-  CONSTRAINT PK_CALIFICACION PRIMARY KEY (id_calificacion)
+  CONSTRAINT pk_calificacion PRIMARY KEY (id_calificacion)
 );
 
 CREATE TABLE cine (
@@ -23,7 +21,7 @@ CREATE TABLE cine (
   fecha_inauguracion DATETIME NULL,
   nombre VARCHAR(200) NULL,
   precio_entrada DOUBLE NULL,
-  CONSTRAINT PK_CINE PRIMARY KEY (id_cine)
+  CONSTRAINT pk_cine PRIMARY KEY (id_cine)
 );
 
 CREATE TABLE entrada (
@@ -33,7 +31,7 @@ CREATE TABLE entrada (
   precio_cobrado FLOAT NULL,
   ticket_nro INT NULL,
   numero INT NOT NULL,
-  CONSTRAINT PK_ENTRADA PRIMARY KEY (id_entrada)
+  CONSTRAINT pk_entrada PRIMARY KEY (id_entrada)
 );
 
 CREATE TABLE funcion (
@@ -44,13 +42,13 @@ CREATE TABLE funcion (
   id_programacion INT(11) NOT NULL,
   id_pelicula INT(11) NOT NULL,
   id_sala INT(11) NOT NULL,
-  CONSTRAINT PK_FUNCION PRIMARY KEY (numero)
+  CONSTRAINT pk_funcion PRIMARY KEY (numero)
 );
 
 CREATE TABLE genero (
   id_genero INT(11) NOT NULL,
   nombre VARCHAR(45) NULL DEFAULT NULL,
-  CONSTRAINT PK_GENERO PRIMARY KEY (id_genero)
+  CONSTRAINT pk_genero PRIMARY KEY (id_genero)
 );
 
 CREATE TABLE horariofuncion (
@@ -61,14 +59,14 @@ CREATE TABLE horariofuncion (
   hora_primera_funcion DATETIME NULL DEFAULT NULL,
   hora_ultima_funcion DATETIME NULL DEFAULT NULL,
   id_cine INT(11) NOT NULL,
-  CONSTRAINT PK_HORARIOFUNCION    PRIMARY KEY (id_horario_funcion)
+  CONSTRAINT pk_horariofuncion    PRIMARY KEY (id_horario_funcion)
 );
 
 CREATE TABLE paisdeorigen (
   id_pais_de_origen INT NOT NULL,
   idioma VARCHAR(45) NULL,
   nombre VARCHAR(45) NULL,
-  CONSTRAINT PK_PAISDEORIGEN PRIMARY KEY (id_pais_de_origen)
+  CONSTRAINT pk_paisdeorigen PRIMARY KEY (id_pais_de_origen)
 );
 
 CREATE TABLE pelicula (
@@ -82,14 +80,14 @@ CREATE TABLE pelicula (
   id_calificacion INT NOT NULL,
   id_pais_de_origen INT NOT NULL,
   id_genero INT NOT NULL,
-  CONSTRAINT PK_PELICULA PRIMARY KEY (id_pelicula)
+  CONSTRAINT pk_pelicula PRIMARY KEY (id_pelicula)
 );
 
 CREATE TABLE personaje (
   id_personaje INT NOT NULL,
   nombreEnPelicula VARCHAR(40) NOT NULL,
   id_actor INT NOT NULL,
-  CONSTRAINT PK_PERSONAJE PRIMARY KEY (id_personaje)
+  CONSTRAINT pk_personaje PRIMARY KEY (id_personaje)
 );
 
 CREATE TABLE programacion (
@@ -98,20 +96,20 @@ CREATE TABLE programacion (
   fecha_hora_creada DATETIME NULL DEFAULT NULL,
   fecha_inicio DATETIME NULL DEFAULT NULL,
   id_cine INT(11) NOT NULL,
-  CONSTRAINT PK_PROGRAMACION PRIMARY KEY (id_programacion)
+  CONSTRAINT pk_programacion PRIMARY KEY (id_programacion)
 );
 
 CREATE TABLE reparto (
   id_personaje INT(11) NOT NULL,
   id_pelicula INT(11) NOT NULL,
-  CONSTRAINT PK_REPARTO PRIMARY KEY (id_personaje, id_pelicula)
+  CONSTRAINT pk_reparto PRIMARY KEY (id_personaje, id_pelicula)
 );
 
 CREATE TABLE rol (
   id_rol INT NOT NULL,
   nombre VARCHAR(100) NULL,
   id_personaje INT NOT NULL,
-  CONSTRAINT PK_ROL PRIMARY KEY (id_rol)
+  CONSTRAINT pk_rol PRIMARY KEY (id_rol)
 );
 
 CREATE TABLE sala (
@@ -119,83 +117,83 @@ CREATE TABLE sala (
   capacidad INT(11) NULL DEFAULT NULL,
   numero INT(11) NULL DEFAULT NULL,
   id_cine INT(11) NOT NULL,
-  CONSTRAINT PK_SALA PRIMARY KEY (id_sala)
+  CONSTRAINT pk_sala PRIMARY KEY (id_sala)
 );
 
 CREATE TABLE sexo (
   id_sexo INT(11) NOT NULL,
   nombre VARCHAR(100) NULL DEFAULT NULL,
   id_actor INT(11) NOT NULL,
-  CONSTRAINT PK_SEXO PRIMARY KEY (id_sexo)
+  CONSTRAINT pk_sexo PRIMARY KEY (id_sexo)
 );
 
 -- Foreign Keys
--- Tabla: SEXO
-    ALTER TABLE Sexo
-	ADD CONSTRAINT FK_Sexo_Actor
-    FOREIGN KEY (id_actor) REFERENCES Actor (id_actor);
+-- Tabla: sexo
+    ALTER TABLE sexo
+	ADD CONSTRAINT fk_sexo_actor
+    FOREIGN KEY (id_actor) REFERENCES actor (id_actor);
     
--- Tabla:Personaje
-   ALTER TABLE Personaje 
-   ADD CONSTRAINT FK_Personaje_Actor
-   FOREIGN KEY (id_actor) REFERENCES Actor (id_actor);
+-- Tabla:personaje
+   ALTER TABLE personaje 
+   ADD CONSTRAINT fk_personaje_actor
+   FOREIGN KEY (id_actor) REFERENCES actor (id_actor);
 
--- Tabla:Rol
-   ALTER TABLE Rol
-   ADD CONSTRAINT FK_Rol_Personaje
-   FOREIGN KEY (id_personaje) REFERENCES Personaje (id_personaje);
+-- Tabla:rol
+   ALTER TABLE rol
+   ADD CONSTRAINT fk_rol_personaje
+   FOREIGN KEY (id_personaje) REFERENCES personaje (id_personaje);
 
--- Tabla:Entrada
-   ALTER TABLE Entrada 
-   ADD CONSTRAINT FK_Entrada_Funcion
-   FOREIGN KEY (numero) REFERENCES Funcion (numero);    
+-- Tabla:entrada
+   ALTER TABLE entrada 
+   ADD CONSTRAINT fk_entrada_funcion
+   FOREIGN KEY (numero) REFERENCES funcion (numero);    
 
--- Tabla:Sala
-   ALTER TABLE Sala
-   ADD CONSTRAINT FK_Sala_Cine
-   FOREIGN KEY (id_cine) REFERENCES Cine (id_cine);
+-- Tabla:sala
+   ALTER TABLE sala
+   ADD CONSTRAINT fk_sala_cine
+   FOREIGN KEY (id_cine) REFERENCES cine (id_cine);
    
--- Tabla:Programacion 
-   ALTER TABLE Programacion
-   ADD CONSTRAINT FK_Programacion_Cine
-   FOREIGN KEY (id_cine) REFERENCES Cine (id_cine);
+-- Tabla:programacion 
+   ALTER TABLE programacion
+   ADD CONSTRAINT fk_programacion_cine
+   FOREIGN KEY (id_cine) REFERENCES cine (id_cine);
    
--- Tabla:HorarioFuncion 
-   ALTER TABLE HorarioFuncion 
-   ADD CONSTRAINT FK_HorarioFuncion_Cine
-   FOREIGN KEY (id_cine) REFERENCES Cine (id_cine);
+-- Tabla:horariofuncion 
+   ALTER TABLE horariofuncion 
+   ADD CONSTRAINT fk_horariofuncion_cine
+   FOREIGN KEY (id_cine) REFERENCES cine (id_cine);
 
--- Tabla:Funcion 
-   ALTER TABLE Funcion 
-   ADD CONSTRAINT FK_Funcion_Pelicula
-   FOREIGN KEY (id_pelicula) REFERENCES Pelicula (id_pelicula);
-   ALTER TABLE Funcion 
-   ADD CONSTRAINT FK_Funcion_Programacion
-   FOREIGN KEY (id_programacion) REFERENCES Programacion (id_programacion);
-   ALTER TABLE Funcion
-   ADD CONSTRAINT FK_Funcion_Sala
-   FOREIGN KEY (id_sala) REFERENCES Sala (id_sala);
+-- Tabla:funcion 
+   ALTER TABLE funcion 
+   ADD CONSTRAINT fk_funcion_pelicula
+   FOREIGN KEY (id_pelicula) REFERENCES pelicula (id_pelicula);
+   ALTER TABLE funcion 
+   ADD CONSTRAINT fk_funcion_programacion
+   FOREIGN KEY (id_programacion) REFERENCES programacion (id_programacion);
+   ALTER TABLE funcion
+   ADD CONSTRAINT fk_funcion_sala
+   FOREIGN KEY (id_sala) REFERENCES sala (id_sala);
    
-  -- Tabla:Pelicula
-   ALTER TABLE Pelicula
-   ADD CONSTRAINT FK_Pelicula_Calificacion
-   FOREIGN KEY (id_calificacion) REFERENCES Calificacion (id_calificacion);
-   ALTER TABLE Pelicula 
-   ADD CONSTRAINT FK_Pelicula_PaisDeOrigen
-   FOREIGN KEY (id_pais_de_origen) REFERENCES PaisDeOrigen (id_pais_de_origen);
-   ALTER TABLE Pelicula
-   ADD CONSTRAINT FK_Pelicula_Genero
-   FOREIGN KEY (id_genero) REFERENCES Genero (id_genero);
+  -- Tabla:pelicula
+   ALTER TABLE pelicula
+   ADD CONSTRAINT fk_pelicula_calificacion
+   FOREIGN KEY (id_calificacion) REFERENCES calificacion (id_calificacion);
+   ALTER TABLE pelicula 
+   ADD CONSTRAINT fk_pelicula_paisdeorigen
+   FOREIGN KEY (id_pais_de_origen) REFERENCES paisdeorigen (id_pais_de_origen);
+   ALTER TABLE pelicula
+   ADD CONSTRAINT fk_pelicula_genero
+   FOREIGN KEY (id_genero) REFERENCES genero (id_genero);
    
-   -- Tabla:Reparto
-    ALTER TABLE Reparto
-    ADD CONSTRAINT FK_Personaje_has_Pelicula_Personaje
-    FOREIGN KEY (id_personaje) REFERENCES Personaje (id_personaje);
-    ALTER TABLE Reparto
-    ADD CONSTRAINT FK_Personaje_has_Pelicula_Pelicula
-    FOREIGN KEY (id_pelicula) REFERENCES Pelicula (id_pelicula);
+   -- Tabla:reparto
+    ALTER TABLE reparto
+    ADD CONSTRAINT fk_personaje_has_pelicula_personaje
+    FOREIGN KEY (id_personaje) REFERENCES personaje (id_personaje);
+    ALTER TABLE reparto
+    ADD CONSTRAINT fk_personaje_has_pelicula_pelicula
+    FOREIGN KEY (id_pelicula) REFERENCES pelicula (id_pelicula);
+    
 
+ALTER TABLE pelicula ADD INDEX (titulo_original);
 
-ALTER TABLE Pelicula ADD INDEX (titulo_original);
-
-ALTER TABLE Personaje ADD INDEX (id_personaje);
+ALTER TABLE personaje ADD INDEX (id_personaje);   
