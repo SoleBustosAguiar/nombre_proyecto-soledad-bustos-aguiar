@@ -21,9 +21,18 @@ USE cine;
 
 -- CREACIÓN DE ROLES
 
+DROP ROLE IF EXISTS 
+role_select_vistas,
+role_crud_pelicula,
+role_all_select_all_table;
+
 CREATE ROLE role_select_vistas;
 CREATE ROLE role_crud_pelicula;
 CREATE ROLE role_all_select_all_table;
+
+
+SELECT user
+FROM mysql.user;
 
 
 -- ASIGNACIÓN DE PRIVILEGIOS AL ROL role_select_vistas
@@ -31,7 +40,7 @@ GRANT SELECT ON pelicula TO role_select_vistas;
 
 -- ASIGNACIÓN DE PRIVILEGIOS AL ROL role_crud_pelicula
 GRANT ALL PRIVILEGES ON pelicula TO role_crud_pelicula;
-GRANT SELECT ON TABLES TO role_all_select_all_table;
+GRANT SELECT ON cine.* TO role_all_select_all_table;
 
 
 -- CREACIÓN DE USUARIOS Y ASIGNACIÓN A ROLES
