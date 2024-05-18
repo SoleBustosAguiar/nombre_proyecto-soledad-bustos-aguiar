@@ -8,7 +8,6 @@ DROP TRIGGER IF EXISTS despues_ingresar_pelicula;
 CREATE TRIGGER despues_agregar_pelicula
 AFTER INSERT ON pelicula
 FOR EACH ROW
-/*BEGIN*/
 INSERT INTO log_pelicula_audi (id_pelicula, 
 		anio_estreno,
 		disponible,
@@ -31,11 +30,10 @@ VALUES (
 		NEW.id_calificacion,
 		NEW.id_pais_de_origen, 
 		NEW.id_genero,   
-        'La pelicula ' & NEW.nombre & ' se ha agregado correctamente');
-/*END;*/
-    /*otra version con begin*/
-
-/* Inserto una película para probar el Trigger 1 y 2*/
+        concat('La pelicula ', NEW.nombre,' se ha agregado correctamente'));
+    
+	
+	/* Inserto una película para probar el Trigger 1 y 2*/
 INSERT INTO cine.pelicula
 (id_pelicula,
 anio_estreno,
@@ -58,11 +56,9 @@ VALUES
 1,
 40,
 13);
-
-  
 SELECT *
 FROM    log_pelicula_audi; 
-DELIMITER //
+
     
     
     
