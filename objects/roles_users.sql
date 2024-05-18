@@ -10,7 +10,7 @@ GRANT ALL PRIVILEGES ON cine.* TO 'admin_super_cine'@'%' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 -- Borro el usuario
-DROP USER 'admin_super_cine'@'localhost';
+DROP USER IF EXISTS 'admin_super_cine'@'localhost';
 
 -- Verifico los privigios del usuario creado--
 SELECT User, Host, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Grant_priv
