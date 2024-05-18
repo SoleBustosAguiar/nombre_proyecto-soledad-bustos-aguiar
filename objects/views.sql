@@ -1,4 +1,4 @@
-USE cine;
+use cine;
 /*VISTA NRO1*/
 CREATE VIEW vista_programacion_cine AS
 SELECT 
@@ -12,9 +12,9 @@ SELECT
     c.nombre AS nombre_cine,
     c.precio_entrada
 FROM 
-    Programacion p
+    programacion p
 JOIN 
-    Cine c ON p.id_cine = c.id_cine;
+    cine c ON p.id_cine = c.id_cine;
     
     
     SELECT * FROM vista_programacion_cine;
@@ -34,13 +34,13 @@ SELECT
     po.nombre AS pais_de_origen,
     g.nombre AS genero
 FROM 
-    Pelicula p
+    pelicula p
 JOIN 
-    Calificacion c ON p.id_calificacion = c.id_calificacion
+    calificacion c ON p.id_calificacion = c.id_calificacion
 JOIN 
-    PaisdeOrigen po ON p.id_pais_de_origen = po.id_pais_de_origen
+    paisdeorigen po ON p.id_pais_de_origen = po.id_pais_de_origen
 JOIN 
-    Genero g ON p.id_genero = g.id_genero;    
+    genero g ON p.id_genero = g.id_genero;    
     
 
 SELECT * FROM vista_pelicula_informacion;    
@@ -60,9 +60,9 @@ SELECT
     pel.nombre AS nombre_pelicula,
     pel.titulo_original
 FROM 
-    Funcion f
+    funcion f
 JOIN 
-    Pelicula pel ON f.id_pelicula = pel.id_pelicula;
+    pelicula pel ON f.id_pelicula = pel.id_pelicula;
 
 select * from vista_peliculas_x_funciones;
 
@@ -78,9 +78,9 @@ SELECT
     s.capacidad,
     s.numero AS numero_sala
 FROM 
-    Cine c
+    cine c
 JOIN 
-    Sala s ON c.id_cine = s.id_cine;
+    sala s ON c.id_cine = s.id_cine;
 
 select * from vista_disponibilidad_salas_x_cines;
 
@@ -99,11 +99,11 @@ SELECT
     p.id_pais_de_origen,
     p.id_genero
 FROM 
-    Pelicula p
+    pelicula p
 JOIN 
-    Paisdeorigen po ON p.id_pais_de_origen = po.id_pais_de_origen
+    paisdeorigen po ON p.id_pais_de_origen = po.id_pais_de_origen
 WHERE 
-    po.idioma = 'ingles';
+    po.idioma = 'inglés';
    
 select * from vista_pelicula_ingles;
 

@@ -35,11 +35,16 @@ up:
 	docker exec -it mysql mysql -u root -p$(PASSWORD) --local-infile=1 -e "source $(DATABASE_POPULATION)"
 
 objects:
-	@echo "Create objects in database"
-	@for file in $(FILES); do \
-	    echo "Process $$file and add to the database: $(DATABASE_NAME)"; \
-	docker exec -it mysql  mysql -u root -p$(PASSWORD) -e "source $$file"; \
-	done
+	@echo "Create objects in database" 
+	docker exec -it $(SERVICE_NAME) mysql -u root -p$(PASSWORD) -e 	"source ./objects/views.sql; source ./objects/functions.sql; source ./objects/store_procedures.sql; source ./objects/triggers.sql; source ./objects/roles_users.sql; "  
+	@echo "Process completed"
+	
+	
+#	@echo "Create objects in database"
+#	@for file in $(FILES); do \
+#	    echo "Process $$file and add to the database: $(DATABASE_NAME)"; \
+#	docker exec -it mysql  mysql -u root -p$(PASSWORD) -e "source $$file"; \
+#	done
 
 test-db:
 	@echo "Testing the tables"
