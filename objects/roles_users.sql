@@ -6,11 +6,11 @@ CREATE USER IF NOT EXISTS 'admin_super_cine'@'%' IDENTIFIED BY 'cine123456';
 SELECT User, Host FROM mysql.user;
 
 -- GRANT ALL PRIVILEGES ON coderhouse_generico.* TO 'admin_super'@'%' se le asiganan todos los provilegios sobre la BD cine, incluyendo los cambios estructurales
-GRANT ALL PRIVILEGES ON cine.* TO 'admin_super_cine'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON cine.* TO 'admin_super_cine'@'%';
 
 FLUSH PRIVILEGES;
 -- Borro el usuario
-DROP USER IF EXISTS 'admin_super_cine'@'localhost';
+-- DROP USER IF EXISTS 'admin_super_cine'@'localhost';
 
 -- Verifico los privigios del usuario creado--
 SELECT User, Host, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Grant_priv
