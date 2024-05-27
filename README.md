@@ -4,13 +4,13 @@
 
 
 # <center>Entrega de proyecto final</center>
-@Alumno
+@Alumno: Soledad Bustos Aguiar
 
-@Comision
+@Comision: 53180
 
-@Tutor
+@Tutor: Santiago Angel Gonzalez Martin
 
-@Docente
+@Docente: Anderson Michel Torres Ocaña
 
 
 
