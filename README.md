@@ -142,13 +142,41 @@ Los objetos de la base de datos se encuentran en la carpeta objects, con un arch
 En el archivo Makefile: se definió el orden de los objetos 
 
 A continuación, se desarrolla la documentación de cada uno de ellos.
+* Vistas:
 
 1.vista_programacion_cine
-2.vista_pelicula_informacion
-3.vista_peliculas_x_funciones
-4.vista_disponibilidad_salas_x_cines
-5.vista_pelicula_ingles
+Se crea para proporcionar una representación combinada de los datos de las tablas:
+.programacion 
+.cine
+La vista se utiliza para obtener información sobre la programación de películas en relación con los cines donde se proyectan.
 
+2.vista_pelicula_informacion
+Se crea para proporcionar una representación combinada de los datos de las tablas:
+.-pelicula 
+.-calificacion
+.-paisdeorigen 
+.-genero. 
+La vista se utiliza para obtener información detallada sobre las películas, incluyendo su calificación, país de origen y género.
+
+3.vista_peliculas_x_funciones
+Se crea para proporcionar una representación combinada de los datos de las tablas:
+.-funcion
+.-pelicula
+La vista se utiliza para obtener información detallada sobre las películas programadas para cada función en un cine
+
+4.vista_disponibilidad_salas_x_cines
+Se crea para proporcionar una representación combinada de los datos de las tablas:
+.-sala
+.-cine
+La vista se utiliza para obtener información detallada sobre la disponibilidad de salas en cada cine.
+
+5.vista_pelicula_ingles
+Se crea para proporcionar una representación combinada de los datos de las tablas:
+.-idioma
+.-paisdeorigen
+La vista se utiliza para obtener información detallada sobre las películas cuyo país de origen es inglés. 
+
+* Funciones
 
 
 
