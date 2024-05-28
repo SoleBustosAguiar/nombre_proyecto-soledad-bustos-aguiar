@@ -60,11 +60,22 @@ El script para la creación y definición de la base de datos se encuentra en el
 A continuación se presenta la descripción de cada una de las tablas de la base de datos.
 
 * Tabla actor
-
 ![alt text](tabla_actor.PNG)
 
 * Tabla calificacion
-![alt text](calificacion.PNG)
+![alt text](tabla_calificacion.PNG)
+
+* Tabla  cine
+![alt text](tabla_cine.PNG)
+
+* Tabla entrada
+![alt text](tabla_entrada.PNG)
+
+* Tabla funcion
+![alt text](tabla_funcion.PNG)
+
+* Tabla genero
+![alt text](tabla_genero.PNG)
 
 
 ## Estructura e ingesta de datos
