@@ -61,7 +61,7 @@ A continuación se presenta la descripción de cada una de las tablas de la base
 
 Tabla actor
 
-
+![alt text](tabla_actor.PNG)
 
 
 
