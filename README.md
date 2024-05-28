@@ -51,11 +51,20 @@ La entrada que se le entrega al cliente representa el comprobante de venta y com
 Los tipos de entradas y los días y horarios de proyección son los que determinan el precio de la entrada, que también pueden variar en cada cine del complejo. Las funciones admiten ciertos tipos de entradas y otros no, dependiendo de factores como: horarios, calificación de las películas, etc. Por ejemplo: si una película está calificada como para mayores de 16 años, para esa función no se pueden vender entradas de TIPO = MENOR. Cada función tiene asociado un tipo de función, que determina si la función es un pre estreno, un estreno o una función normal.
 
 
-
 ## Diagrama entidad relacion (DER)
 
 ![alt text](<DER CINE - Bustos Aguiar.png>)
 ## Listado de tablas y descripcion
+El script para la creación y definición de la base de datos se encuentra en el archivo database_structure.sql, ubicado en la carpeta structure.
+
+A continuación se presenta la descripción de cada una de las tablas de la base de datos.
+
+Tabla actor
+
+
+
+
+
 
 ## Estructura e ingesta de datos
 
