@@ -62,63 +62,63 @@ El script para la creación y definición de la base de datos se encuentra en el
 
 A continuación se presenta la descripción de cada una de las tablas de la base de datos.
 
-* Tabla 1: actor
+* Tabla 1: **actor**
 
 ![alt text](images/tabla_actor.PNG)
 
-* Tabla 2: calificacion
+* Tabla 2: **calificacion**
 
 ![alt text](images/tabla_calificacion.PNG)
 
-* Tabla 3: cine
+* Tabla 3: **cine**
 
 ![alt text](images/tabla_cine.PNG)
 
-* Tabla 4: entrada
+* Tabla 4: **entrada**
 
 ![alt text](images/tabla_entrada.PNG)
 
-* Tabla 5: funcion
+* Tabla 5: **funcion**
 
 ![alt text](images/tabla_funcion.PNG)
 
-* Tabla 6: genero
+* Tabla 6: **genero**
 
 ![alt text](images/tabla_genero.PNG)
 
-* Tabla 7: horariofuncion
+* Tabla 7: **horariofuncion**
 
 ![alt text](images/tabla_horariofuncion.PNG)
 
-* Tabla 8: paisdeorigen
+* Tabla 8: **paisdeorigen**
 
 ![alt text](images/tabla_paisdeorigen.PNG)
 
-* Tabla 9: pelicula
+* Tabla 9: **pelicula**
 
 ![alt text](images/tabla_pelicula.PNG)
 
-* Tabla 10: personaje
+* Tabla 10: **personaje**
 
 ![alt text](images/tabla_personaje.PNG)
 
-* Tabla 11: programacion
+* Tabla 11: **programacion**
 
 ![alt text](images/tabla_programacion.PNG)
 
-* Tabla 12: reparto
+* Tabla 12: **reparto**
 
 ![alt text](images/tabla_reparto.PNG)
 
-* Tabla 13: rol
+* Tabla 13: **rol**
 
 ![alt text](images/tabla_rol.PNG)
 
-* Tabla 14: sala
+* Tabla 14: **sala**
 
 ![alt text](images/tabla_sala.PNG)
 
-* Tabla 15: sexo
+* Tabla 15: **sexo**
 
 ![alt text](images/tabla_sexo.PNG)
 
@@ -133,16 +133,16 @@ A continuación se presenta la descripción de cada una de las tablas de la base
 ## Objetos de la base de datos
 Los objetos de la base de datos se encuentran en la carpeta objects, con un archivo sql para cada tipo de objeto:
 
-1. Vistas: views.sql
-2. Funciones: functions.sql
-3. Prodecimientos almacenados: store_procedures.sql
-4. Triggers: triggers.sql
-5. Roles, permisos y usuarios: roles_users.sql
+1. **Vistas:** views.sql
+2. **Funciones:** functions.sql
+3. **Prodecimientos almacenados:** store_procedures.sql
+4. **Triggers:** triggers.sql
+5. **Roles, permisos y usuarios:** roles_users.sql
 
 En el archivo Makefile: se definió el orden de los objetos 
 
 A continuación, se desarrolla la documentación de cada uno de ellos.
-* Vistas:
+* **Vistas:**
 
 1.vista_programacion_cine
 Se crea para proporcionar una representación combinada de los datos de las tablas:
@@ -176,7 +176,7 @@ Se crea para proporcionar una representación combinada de los datos de las tabl
 .-paisdeorigen
 La vista se utiliza para obtener información detallada sobre las películas cuyo país de origen es inglés. 
 
-* Funciones
+* **Funciones**
 1. buscar_nombrepelicula
 Ingresar idpelicula y devuelve el nombre de la pelicula
 
@@ -189,7 +189,7 @@ Lista la cantidad de peliculas con el genero ingresado
 El objetivo de esta función es proporcionar una forma conveniente de obtener la cantidad de películas que pertenecen a un género específico dado como argumento. Al pasar el nombre del género como parámetro a esta función, se obtiene la cantidad de películas asociadas a ese género. Esto puede ser útil para obtener estadísticas sobre la distribución de películas por género en una base de datos.
 Tablas: pelicula y genero.
 
-* Prodecimientos almacenados
+* **Prodecimientos almacenados**
 
 1. poner_mayusculas_nombrepeliculas()
 
@@ -201,7 +201,7 @@ Tabla: pelicula
 El objetivo crear una tabla de auditoría llamada log_pelicula_audi, que tiene una estructura similar a la tabla pelicula pero se utiliza para mantener un registro histórico de los cambios realizados en la tabla pelicula. 
 Tabla: pelicula
 
-* Triggers
+* **Triggers**
 
 1. despues_ingresar_pelicula
 
@@ -229,7 +229,10 @@ Tabla: pelicula
 2. CRUD al role_crud_pelicula
 3. Selección role_all_select_all_table
 
-* Se creó el usuario: 'admin_super_cine'
+* Usuarios creados: 
+1. admin_super_cine'
+2. usuario_crud_pelicula
+
 
 Todos los roles, permisos y usuarios: se definen en el archivo roles_users.sql
 
