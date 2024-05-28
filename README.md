@@ -53,29 +53,79 @@ Los tipos de entradas y los días y horarios de proyección son los que determin
 
 ## Diagrama entidad relacion (DER)
 
-![alt text](<DER CINE - Bustos Aguiar.png>)
+![alt text](<images/DER CINE - Bustos Aguiar.png>)
+
 ## Listado de tablas y descripcion
 El script para la creación y definición de la base de datos se encuentra en el archivo database_structure.sql, ubicado en la carpeta structure.
 
 A continuación se presenta la descripción de cada una de las tablas de la base de datos.
 
-* Tabla actor
-![alt text](tabla_actor.PNG)
+* Tabla 1: actor
 
-* Tabla calificacion
-![alt text](tabla_calificacion.PNG)
+![alt text](images/tabla_actor.PNG)
 
-* Tabla  cine
-![alt text](tabla_cine.PNG)
+* Tabla 2: calificacion
 
-* Tabla entrada
-![alt text](tabla_entrada.PNG)
+![alt text](images/tabla_calificacion.PNG)
 
-* Tabla funcion
-![alt text](tabla_funcion.PNG)
+* Tabla 3: cine
 
-* Tabla genero
-![alt text](tabla_genero.PNG)
+![alt text](images/tabla_cine.PNG)
+
+* Tabla 4: entrada
+
+![alt text](images/tabla_entrada.PNG)
+
+* Tabla 5: funcion
+
+![alt text](images/tabla_funcion.PNG)
+
+* Tabla 6: genero
+
+![alt text](images/tabla_genero.PNG)
+
+* Tabla 7: horariofuncion
+
+![alt text](images/tabla_horariofuncion.PNG)
+
+* Tabla 8: paisdeorigen
+
+![alt text](images/tabla_paisdeorigen.PNG)
+
+* Tabla 9: pelicula
+
+![alt text](images/tabla_pelicula.PNG)
+
+* Tabla 10: personaje
+
+![alt text](images/tabla_personaje.PNG)
+
+* Tabla 11: programacion
+
+![alt text](images/tabla_programacion.PNG)
+
+* Tabla 12: reparto
+
+![alt text](images/tabla_reparto.PNG)
+
+* Tabla 13: rol
+
+![alt text](images/tabla_rol.PNG)
+
+* Tabla 14: sala
+
+![alt text](images/tabla_sala.PNG)
+
+* Tabla 15: sexo
+
+![alt text](images/tabla_sexo.PNG)
+
+
+
+
+
+
+
 
 
 ## Estructura e ingesta de datos
