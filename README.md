@@ -177,8 +177,43 @@ Se crea para proporcionar una representación combinada de los datos de las tabl
 La vista se utiliza para obtener información detallada sobre las películas cuyo país de origen es inglés. 
 
 * Funciones
+1. buscar_nombrepelicula
+Ingresar idpelicula y devuelve el nombre de la pelicula
+
+El objetivo de esta función es proporcionar una forma conveniente de obtener el nombre de una película dado su identificador único (idpelicula). Al pasar el idpelicula como argumento a esta función, se obtiene el nombre de la película correspondiente. 
+Tabla: pelicula.
+
+2. cantidadpelicula_x_genero
+Lista la cantidad de peliculas con el genero ingresado
+
+El objetivo de esta función es proporcionar una forma conveniente de obtener la cantidad de películas que pertenecen a un género específico dado como argumento. Al pasar el nombre del género como parámetro a esta función, se obtiene la cantidad de películas asociadas a ese género. Esto puede ser útil para obtener estadísticas sobre la distribución de películas por género en una base de datos.
+Tablas: pelicula y genero.
+
+* Prodecimientos almacenados
+
+1. poner_mayusculas_nombrepeliculas()
+
+El objetivo de este procedimiento almacenado es normalizar los nombres de las películas en la tabla pelicula, asegurándose de que todos los nombres estén en mayúsculas. Esto puede ser útil para mantener la consistencia en los datos y facilitar las consultas y búsquedas en la base de datos. Al llamar a este procedimiento, se realiza la actualización automáticamente en todas las filas de la tabla pelicula.
+Tabla: pelicula
+
+2. crear_estructura_auditoria_peliculas()
+
+El objetivo crear una tabla de auditoría llamada log_pelicula_audi, que tiene una estructura similar a la tabla pelicula pero se utiliza para mantener un registro histórico de los cambios realizados en la tabla pelicula. 
+Tabla: pelicula
+
+* Triggers
+
+1. despues_ingresar_pelicula
+
+El objetivo de este trigger es proporcionar un mensaje de confirmación después de que se inserte una nueva película en la tabla pelicula. Una vez que se inserta una fila en la tabla pelicula, este trigger se activa y muestra un mensaje indicando que la película se ha agregado correctamente. Este tipo de confirmación puede ser útil para los usuarios o para el seguimiento de operaciones en la base de datos.
+Tabla: pelicula
 
 
+2. nombre_enmayuscula_pelicula
+
+El objetivo de este trigger es es garantizar que el nombre de una película insertada en la tabla pelicula siempre esté en mayúsculas.
+Este trigger garantiza que el nombre de cualquier película insertada en la tabla pelicula esté siempre en mayúsculas, independientemente de cómo se haya ingresado originalmente. Esto puede ser útil para mantener la consistencia en los datos y facilitar la búsqueda y clasificación de películas por su nombre.
+Tabla: pelicula
 
 
 ## Roles y permisos

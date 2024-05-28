@@ -5,7 +5,7 @@ use cine;
 /*PRIMER trigger de auditoria, primero crea la tabla y luego crea el trigger*/
 
 DROP TRIGGER IF EXISTS despues_ingresar_pelicula;
-CREATE TRIGGER despues_agregar_pelicula
+CREATE TRIGGER despues_ingresar_pelicula
 AFTER INSERT ON pelicula
 FOR EACH ROW
 INSERT INTO log_pelicula_audi (id_pelicula, 
