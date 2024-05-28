@@ -125,28 +125,9 @@ A continuación se presenta la descripción de cada una de las tablas de la base
 
 ## Estructura e ingesta de datos
 
---La ingesta de datos en las tablas dimensionales: 
-Tabla 1: actor
-Tabla 2: calificacion
-Tabla 3: cine
-Tabla 4: entrada
-Tabla 5: funcion
-Tabla 6: genero
-Tabla 7: horariofuncion
-Tabla 8: paisdeorigen
-Tabla 9: pelicula
-Tabla 10: personaje
-Tabla 11: programacion
-Tabla 12: reparto
-Tabla 13: rol
-Tabla 14: sala
-Tabla 15: sexo
-Se realiza por medio del archivo population.sql que se encuentra en la carpeta structure.
+* La ingesta de datos en las tablas dimensionales: actor, calificacion, cine, entrada, funcion, genero, horariofuncion, paisdeorigen, pelicula, personaje, programacion, reparto, rol, sala, sexo. Se realiza por medio del archivo population.sql que se encuentra en la carpeta structure.
 
---La ingesta de datos de la tabla 
-Tabla 16: log_pelicula_audi 
-
-Se realiza por medio del procedimiento almacenado crear_estructura_auditoria_peliculas() 
+* La ingesta de datos de la tabla: log_pelicula_audi. Se realiza por medio del procedimiento almacenado crear_estructura_auditoria_peliculas() 
 
 
 ## Objetos de la base de datos
