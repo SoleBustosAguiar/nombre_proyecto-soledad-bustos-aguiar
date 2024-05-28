@@ -131,14 +131,27 @@ A continuación se presenta la descripción de cada una de las tablas de la base
 
 
 ## Objetos de la base de datos
-Los objetos de la base de dajos se encuentran en la carpeta objects, con un archivo sql para cada tipo de objeto, a saber:
+Los objetos de la base de datos se encuentran en la carpeta objects, con un archivo sql para cada tipo de objeto:
 
-Funciones : a_funtions.sql
-Triggers : b_triggers.sql
-Prodecimientos almacenados : c_stored_procedures.sql
-Vistas : d_views.sql
-Roles, permisos y usuarios : e_roles_users.sql
+1. Vistas: views.sql
+2. Funciones: functions.sql
+3. Prodecimientos almacenados: store_procedures.sql
+4. Triggers: triggers.sql
+5. Roles, permisos y usuarios: roles_users.sql
+
+En el archivo Makefile: se definió el orden de los objetos 
+
 A continuación, se desarrolla la documentación de cada uno de ellos.
+
+1.vista_programacion_cine
+2.vista_pelicula_informacion
+3.vista_peliculas_x_funciones
+4.vista_disponibilidad_salas_x_cines
+5.vista_pelicula_ingles
+
+
+
+
 
 ## Roles y permisos
 * Se generaron tres roles:
@@ -158,7 +171,7 @@ A continuación, se desarrolla la documentación de cada uno de ellos.
 Todos los roles, permisos y usuarios: se definen en el archivo roles_users.sql
 
 ## Back up de la base de datos
-El backup generado es del tipo self-contained file y contiene estructura y datos. Se almacena en la carpeta backups.
+El backup generado se encuentra en la carpeta backups.
 
 ## Herramientas y tecnologias usadas
 * MySQL (gestor de bases de datos, version 8.0.36)
