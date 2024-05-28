@@ -131,16 +131,37 @@ A continuación se presenta la descripción de cada una de las tablas de la base
 
 
 ## Objetos de la base de datos
+Los objetos de la base de dajos se encuentran en la carpeta objects, con un archivo sql para cada tipo de objeto, a saber:
+
+Funciones : a_funtions.sql
+Triggers : b_triggers.sql
+Prodecimientos almacenados : c_stored_procedures.sql
+Vistas : d_views.sql
+Roles, permisos y usuarios : e_roles_users.sql
+A continuación, se desarrolla la documentación de cada uno de ellos.
 
 ## Roles y permisos
 
 ## Back up de la base de datos
+El backup generado es del tipo self-contained file y contiene estructura y datos. Se almacena en la carpeta backups.
 
 ## Herramientas y tecnologias usadas
-
+* MySQL (gestor de bases de datos, version 8.0.36)
+* MySQL Workbench (interfaz gráfica, version 8.0.36)
+* Slide, Google Drive y Meet Google (primera y segunda entrega)
+* https://mockaroo.com/ (para generar datos ficticios)
+* Makefile (genera una interfaz sencilla de procesos)
+* Docker (genera container)
+* GitHub (entrega proyecto final)
 ## Como levantar el proyecto en CodeSpaces GitHub
 * env: Archivo con contraseñas y data secretas
 * Makefile: Abstracción de creacción del proyecto
 * docker-compose.yml: Permite generar las bases de datos en forma de contenedores
 
 #### Pasos para arrancar el proyecto
+En la terminal escribir :
+* make si te da un error de que no conexion al socket, volver al correr el comando make
+* make clean-db limpiar la base de datos
+* make test-db para mirar los datos de cada tabla
+* make backup-db para realizar un backup de mi base de datos
+* make access-db para acceder a la base de datos
