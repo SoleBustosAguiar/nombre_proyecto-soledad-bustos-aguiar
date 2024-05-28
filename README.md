@@ -141,6 +141,21 @@ Roles, permisos y usuarios : e_roles_users.sql
 A continuación, se desarrolla la documentación de cada uno de ellos.
 
 ## Roles y permisos
+* Se generaron tres roles:
+
+1. role_select_vistas: Este rol tiene permisos solo para leer las vistas.
+2. role_crud_pelicula: Este rol tiene permisos para generar CRUD en toda la base de datos.
+3. role_all_select_all_table: Este rol tiene permisos para leer todas las tablas de la base de datos.
+
+* Se asignaron los privilegios:
+
+1. Selección al role_select_vistas
+2. CRUD al role_crud_pelicula
+3. Selección role_all_select_all_table
+
+* Se creó el usuario: 'admin_super_cine'
+
+Todos los roles, permisos y usuarios: se definen en el archivo roles_users.sql
 
 ## Back up de la base de datos
 El backup generado es del tipo self-contained file y contiene estructura y datos. Se almacena en la carpeta backups.
